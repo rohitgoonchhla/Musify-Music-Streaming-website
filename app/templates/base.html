@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Musify</title>
+    <!--files,font linked-->
+    
+    <link rel="stylesheet" href="/static/css/style.css" />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/static/js/main.js" />
+
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <img src="/static/images/musify logo.jpg" alt="">
+      </a>
+     
+    <!--Navigation bar-->
+    <div class="bx bx-menu" id="menu-icon"></div>
+      <ul class="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#Tracks">Tracks</a></li>
+      </ul>
+      <div class="header-btn">
+        <a href= "{% url 'signup' %}"class="sign-up">Sign Up</a>
+        <a href="/signin.html" class="sign-in">Sign In</a>
+      </div>
+    </header> 
+    <section class="home" id="home">
+      <div class="text">
+        <h1><span>Just Search the Artist<br></span>And We Got you Cover </h1>
+      </div>
+    </section>
+
+    <!-- As a heading -->
+    <!-- <nav class="navbar navbar-dark bg-primary">
+    <span class="navbar-brand mb-0 h1">Musify</span>
+    </nav>
+    <div class="jumbotron ">
+    <h3 class="text-center">Type The Name of Artist </h3>
+    </div> -->
+
+
+    <section>
+      <div class="container">
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Input Artist URI</label>
+        <div class="col-sm-10">
+          <input name="uri" type="" class="form-control form-control-lg" id="colFormLabelLg" placeholder="type uri">
+          <button type="submit" class="btn btn-success btn-lg mt-1">submit</button>
+        </div>
+      </div>
+      </form>
+      <hr>
+      </div>
+    </section>
+
+    
+    <!--About-->
+    <section class="about" id="about">
+      <div class="heading">
+        <span>About Us</span>
+        <h1>Best Customer Experience</h1>
+      </div>
+      <div class="about-container">
+        <div class="about-img">
+          <img src="static/images/head.jpg" alt="" />
+        </div>
+        <div class="about-text">
+          <!-- <span>About Us</span> -->
+          <p>
+            Musify is a music streaming service that lets you discover and discover music artists. Our mission is to empower music lovers to discover music artists and discover music tracks.
+          </p>
+          <p>
+            With a wide range of artist collections from all around the world.
+          </p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    {% if results %}
+    <div class="container bg-dark p-2">
+    {% for x in results %}
+    <ol class="list-group mt-1">
+      <li class="list-group-item bg-info text-center"><h3 class="text-white" >{{x.name}}</h3></li>
+      <li class="list-group-item" ><a href='{{x.preview_url}}'><button type="button" class="btn btn-success btn-lg mt-1">PLAY SONG</button></a></li>
+      <li class="list-group-item"><img src="{{x.album.images.0.url}}" class="img-fluid img-thumbnail" alt=""></li>
+    </ol><hr>
+    {% endfor %}
+    </div>
+     {% endif %}
+
+
+    <!--Reviews-->
+
+    <section class="reviews" id="reviews">
+      <div class="heading">
+        <span>Reviews</span>
+        <h1>What's Our Customer Say</h1>
+      </div>
+      <div class="reviews-container">
+        <div class="box">
+          <div class="rev-img">
+            <img src="/static/images/rev1.jpg" alt="" />
+          </div>
+          <h2>Michael</h2>
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere,
+            facilis.
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="rev-img">
+            <img src="/static/images/rev2.jpg" alt="" />
+          </div>
+          <h2>Finn</h2>
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat,
+            sapiente.
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="rev-img">
+            <img src="/static/images/rev3.jpg" alt="" />
+          </div>
+          <h2>Riley</h2>
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+            esse!
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!--Newsletter-->
+    <section class="newsletter">
+      <h2>Subscribe To Newsletter</h2>
+      <div class="box">
+        <input type="text" placeholder="Enter Your Email....." />
+        <a href="#" class="btn">Subscribe</a>
+      </div>
+    </section>
+    
+
+    
+     <section class="Tracks" id="Tracks">
+      <div class="containers">
+        <div class="songList">
+            <h1>Look At Some Tracks</h1>
+            <div class="songItemContainer">
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Attention - Charlie Puth</span>
+                    <span class="songlistplay"><span class="timestamp">03:31 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Blinding Lights - The Weekend</span>
+                    <span class="songlistplay"><span class="timestamp">03:21 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Closer - Chainsmokers</span>
+                    <span class="songlistplay"><span class="timestamp">04:05 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Sober - G-Eazy ft. Charlie Puth</span>
+                    <span class="songlistplay"><span class="timestamp">03:25 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Harleys in Hawaii - Katy Perry</span>
+                    <span class="songlistplay"><span class="timestamp">03:05 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Bones - Imagine Dragons</span>
+                    <span class="songlistplay"><span class="timestamp">02:50 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Back to You - Louis Tomilson ft. Bebe Rexha</span>
+                    <span class="songlistplay"><span class="timestamp">03:19 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Animals - Martin Garrix</span>
+                    <span class="songlistplay"><span class="timestamp">03:22 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Stereo Hearts ft. Adam Levine</span>
+                    <span class="songlistplay"><span class="timestamp">03:34 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Watermelon Sugar - Harry Styles</span>
+                    <span class="songlistplay"><span class="timestamp">02:56 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+            </div>
+        </div>
+        <div class="songBanner"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h1 class="heading">Contact Us</h1>
+
+      <div class="row">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1632137920043!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+
+        <form action="">
+          <h2>Get in Touch</h2>
+          <input type="text" placeholder="your name" class="box" />
+          <input type="email" placeholder="your email" class="box" />
+          <input type="tel" placeholder="subject" class="box" />
+          <textarea
+            placeholder="your message"
+            class="box"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input type="submit" value="send message" class="btn" />
+        </form>
+      </div>
+    </section>
+
+
+    <section class="footer" id="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>our branches</h3>
+          <a href="#"> <i class="fas fa-map-marker-alt"></i> Mumbai </a>
+          <a href="#"> <i class="fas fa-map-marker-alt"></i> Delhi </a>
+        </div>
+
+        <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"> <i class="fas fa-arrow-right"></i> Home </a>
+          <a href="#Tracks"> <i class="fas fa-arrow-right"></i> Tracks </a>
+          <a href="#about"> <i class="fas fa-arrow-right"></i> About Us </a>
+          <a href="#review"> <i class="fas fa-arrow-right"></i> reviews </a>
+          
+        </div>
+
+        <div class="box">
+          <h3>contact info</h3>
+          <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+          <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+          <a href="#">
+            <i class="fas fa-envelope"></i> musify@gmail.com
+          </a>
+          <a href="#">
+            <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104
+          </a>
+        </div>
+
+        <div class="box">
+          <h3>Socials</h3>
+          <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+          <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+          <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+          <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+          <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+      </div>
+      <div class="credit">
+        created by Rohit
+      </div>
+      
+    </section>
+
+
+     
+     <div class="bottom">
+      <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+      <div class="icons">
+          <!-- fontawesome icons -->
+          <i class="fas fa-3x fa-step-backward" id="previous"></i>
+          <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+          <i class="fas fa-3x fa-step-forward" id="next"></i> 
+      </div>
+      <div class="songInfo">
+          <img src="static/images/playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Bones - Imagine Dragons</span>
+      </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
