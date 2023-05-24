@@ -10,16 +10,16 @@ let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
-    {songName: "Attention - Charlie Puth", filePath: "/static/audio/Attention.mp3", coverPath: "/static/images/Attention.jpg"},
-    {songName: "Blinding Lights - The Weekend", filePath: "/static/audio/Blinding Lights.mp3", coverPath: "/static/images/Blinding_Lights.jpg"},
-    {songName: "Closer - Chainsmokers", filePath: "/static/audio/Closer.mp3", coverPath: "/static/images/Closer.jpg"},
-    {songName: "Sober - G-Eazy ft. Charlie Puth", filePath: "/static/audio/Sober.mp3", coverPath: "/static/images/sober.jpg"},
-    {songName: "Harleys in Hawaii - Katy Perry", filePath: "/static/audio/Harleys_In_Hawaii.mp3", coverPath: "/static/images/Harleys_in_Hawaii.jpg"},
-    {songName: "Bones - Imagine Dragons", filePath: "/static/audio/Bones.mp3", coverPath: "/static/images/Bones.jpg"},
-    {songName: "Back to You - Louis Tomilson ft. Bebe Rexha", filePath: "/static/audio/Back_to_you.mp3", coverPath: "/static/images/back to you.jpg"},
-    {songName: "Animals - Martin Garrix", filePath: "/static/audio/Animals.mp3", coverPath: "/static/images/Animals.jpg"},
-    {songName: "Stereo Hearts ft. Adam Levine", filePath: "/static/audio/Stereo_Hearts", coverPath: "/static/images/stereo.jpg"},
-    {songName: "Watermelon Sugar - Harry Styles", filePath: "/static/audio/Watermelon_Sugar", coverPath: "/static/images/Watermelon_sugar.jpg"},
+    {songName: "Attention - Charlie Puth", filePath: "", coverPath: "/static/images/Attention.jpg"},
+    {songName: "Blinding Lights - The Weekend", filePath: "", coverPath: "/static/images/Blinding_Lights.jpg"},
+    {songName: "Closer - Chainsmokers", filePath: "", coverPath: "/static/images/Closer.jpg"},
+    {songName: "Sober - G-Eazy ft. Charlie Puth", filePath: "", coverPath: "/static/images/sober.jpg"},
+    {songName: "Harleys in Hawaii - Katy Perry", filePath: "", coverPath: "/static/images/Harleys_in_Hawaii.jpg"},
+    {songName: "Bones - Imagine Dragons", filePath: "", coverPath: "/static/images/Bones.jpg"},
+    {songName: "Back to You - Louis Tomilson ft. Bebe Rexha", filePath: "", coverPath: "/static/images/back to you.jpg"},
+    {songName: "Animals - Martin Garrix", filePath: "", coverPath: "/static/images/Animals.jpg"},
+    {songName: "Stereo Hearts ft. Adam Levine", filePath: "", coverPath: "/static/images/stereo.jpg"},
+    {songName: "Watermelon Sugar - Harry Styles", filePath: "", coverPath: "/static/images/Watermelon_sugar.jpg"},
 ]
 
 songItems.forEach((element, i)=>{ 
